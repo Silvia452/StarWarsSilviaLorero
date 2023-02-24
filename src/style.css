@@ -1,0 +1,36 @@
+
+body{
+    background: url(http://wallpapercave.com/wp/pEeUsp1.jpg);
+    color: yellow;
+    letter-spacing: 2px;
+}
+h1{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left:25% ;
+    margin-right: 25%;
+    
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.568);
+} 
+ul{
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    margin-top: 200px;
+    margin-left:5% ;
+    margin-right: 5%;
+}
+div{
+    font-size: larger;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.568);
+    
+
+}

@@ -1,0 +1,71 @@
+
+
+body{
+    background: url(http://wallpapercave.com/wp/pEeUsp1.jpg);
+    color: yellow;
+    letter-spacing: 2px;
+}
+
+/* #ej1 {
+    border: 1px solid red;
+    height: 300px;
+    width: 200px;
+
+    overflow: hidden;
+}
+
+#ej1:hover {
+    overflow-y: scroll;
+} */
+
+#Container{
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    margin-left:5% ;
+    margin-right: 5%;
+
+
+}
+
+#CO{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: rgba(128, 128, 128, 0.774);
+    width: 300px;
+    height: 500px;
+    overflow: hidden;
+
+}
+
+#Container > div > div{
+    text-align: left;
+    overflow-y: scroll;
+}
+li{
+    margin-left:10px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#Container > div > div::-webkit-scrollbar {
+    width: 12px;
+}
+  
+#Container > div > div::-webkit-scrollbar-track {
+    background: none;
+}
+  
+#Container > div > div::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 20px;
+    border: 3px solid black; 
+}
+/* #Back{
+    display: flex;
+    flex-direction: row;
+} */
