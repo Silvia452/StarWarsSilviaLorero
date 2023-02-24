@@ -4,27 +4,27 @@ let dom = {}
 var term = sessionStorage.getItem("term");
 window.onload = () => {
 
-    dom["NOM"] = document.getElementById("NOM")
-    dom["PEL"] = document.getElementById("PEL")
-    dom["PE"] = document.getElementById("PE")
-    dom["MOD"] = document.getElementById("MOD")
-    dom["MAN"] = document.getElementById("MAN")
-    dom["COS"] = document.getElementById("COS")
-    dom["LEN"] = document.getElementById("LEN")
-    dom["MAS"] = document.getElementById("MAS")
-    dom["CRE"] = document.getElementById("CRE")
-    dom["PAS"] = document.getElementById("PAS")
-    dom["CAC"] = document.getElementById("CAC")
-    dom["CON"] = document.getElementById("CON")
-    dom["HYR"] = document.getElementById("HYR")
-    dom["MGL"] = document.getElementById("MGL")
-    dom["STC"] = document.getElementById("STC")
+    dom["nombre"] = document.getElementById("nombre")
+    dom["pelicula"] = document.getElementById("pelicula")
+    dom["personaje"] = document.getElementById("personaje")
+    dom["modelo"] = document.getElementById("modelo")
+    dom["fab"] = document.getElementById("fab")
+    dom["coste"] = document.getElementById("coste")
+    dom["len"] = document.getElementById("len")
+    dom["vel"] = document.getElementById("vel")
+    dom["trip"] = document.getElementById("trip")
+    dom["pasaj"] = document.getElementById("pasaj")
+    dom["capac"] = document.getElementById("capac")
+    dom["consum"] = document.getElementById("consum")
+    dom["hyperdrive"] = document.getElementById("hyperdrive")
+    dom["megalaser"] = document.getElementById("megalaser")
+    dom["clasenav"] = document.getElementById("clasenav")
     
     obtenerNaves(term)
     .then(r => {
-        dom["NOM"].innerHTML = r.name
-        r.films.forEach(addPEL)
-        r.pilots.forEach(addPER)
+        dom["nombre"].innerHTML = r.name
+        r.films.forEach(addPelicula)
+        r.pilots.forEach(addPersonaje)
         addPRO(r)
 
     })
@@ -36,25 +36,26 @@ window.onload = () => {
 
 }
 
-function addPRO(PRO) {
-    MOD.innerHTML = "Modelo: " + PRO.model
-    MAN.innerHTML = "Fabricante: " + PRO.manufacturer
-    COS.innerHTML = "Coste: " + PRO.cost
-    LEN.innerHTML = "Longitud: " + PRO.length
-    MAS.innerHTML = "Velocidad máxima: " + PRO.max_atmosphering_speed
-    CRE.innerHTML = "Tripulación: " + PRO.crew
-    PAS.innerHTML = "Pasajeros: " + PRO.passengers
-    CAC.innerHTML = "Capacidad: " + PRO.cargo_capacity
-    CON.innerHTML = "Consumibles: " + PRO.consumables
-    HYR.innerHTML = "calificación de hiperimpulsor " + PRO.hyperdrive_rating
-    MGL.innerHTML = "MGLT: " + PRO.MGLT
-    STC.innerHTML = "Clase de nave: " + PRO.starship_class
+function addPRO(addi) {
+    modelo.innerHTML = "Modelo: " + addi.model
+    clasenav.innerHTML = "Clase de nave: " + addi.starship_class
+    fab.innerHTML = "Fabricante: " + addi.manufacturer
+    coste.innerHTML = "Coste: " + addi.cost
+    len.innerHTML = "Longitud: " + addi.length
+    vel.innerHTML = "Velocidad máxima: " + addi.max_atmosphering_speed
+    trip.innerHTML = "Tripulación: " + addi.crew
+    pasaj.innerHTML = "Pasajeros: " + addi.passengers
+    capac.innerHTML = "Capacidad: " + addi.cargo_capacity
+    consum.innerHTML = "Consumibles: " + addi.consumables
+    hyperdrive.innerHTML = "Calificación de hiperimpulsor: " + addi.hyperdrive_rating
+    megalaser.innerHTML = "MGLT: " + addi.MGLT
+
 
 
 }
 
-function addPEL(PEL) {
-    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(PEL))
+function addPelicula(pelicula) {
+    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
     .then(r =>{
     
         let a = document.createElement('a')
@@ -64,7 +65,7 @@ function addPEL(PEL) {
     
         li.appendChild(a)
         a.innerText = r.title
-        dom['PEL'].appendChild(li)
+        dom['pelicula'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "films/" + aux
@@ -75,8 +76,8 @@ function addPEL(PEL) {
     })
 }
 
-function addPER(PERS) {
-    obtenerPersonajes(PERS)
+function addPersonaje(personaje) {
+    obtenerPersonajes(personaje)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "personaje.html"
@@ -85,7 +86,7 @@ function addPER(PERS) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['PE'].appendChild(li)
+        dom['personaje'].appendChild(li)
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "people/" + aux
         

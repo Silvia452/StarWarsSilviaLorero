@@ -4,23 +4,23 @@ let dom = {}
 var term = sessionStorage.getItem("term");
 window.onload = () => {
 
-    dom["NOM"] = document.getElementById("NOM")
-    dom["OP"] = document.getElementById("OP")
-    dom["PEL"] = document.getElementById("PEL")
-    dom["PL"] = document.getElementById("PL")
-    dom["VE"] = document.getElementById("VE")
-    dom["NA"] = document.getElementById("NA")
-    dom["ES"] = document.getElementById("ES")
+    dom["nombre"] = document.getElementById("nombre")
+    dom["descripcion"] = document.getElementById("descripcion")
+    dom["pelicula"] = document.getElementById("pelicula")
+    dom["planeta"] = document.getElementById("planeta")
+    dom["veh"] = document.getElementById("veh")
+    dom["nave"] = document.getElementById("nave")
+    dom["especie"] = document.getElementById("especie")
     
     obtenerPersonajes(term)
     .then(r => {
-        dom["NOM"].innerHTML = r.name
+        dom["nombre"].innerHTML = r.name
         addCAR(r)
-        r.films.forEach(addPEL)
-        addPLA(r.homeworld)
-        r.starships.forEach(addNAV)
-        r.vehicles.forEach(addVEH)
-        r.species.forEach(addESP)
+        r.films.forEach(addPelicula)
+        addPlaneta(r.homeworld)
+        r.starships.forEach(addNave)
+        r.vehicles.forEach(addVeh)
+        r.species.forEach(addEspecie)
     })
     
     
@@ -32,11 +32,11 @@ window.onload = () => {
 
 
 }
-function addCAR(CAR) {
-    dom["OP"].innerHTML = "Es "+ CAR.gender + ". La altura es de " + CAR.height + ", su peso es de: " + CAR.mass + ". Su color de pelo: " + CAR.hair_color + " y su color de piel es: " + CAR.skin_color +", el de sus ojos es: " + CAR.eye_color +". Nació en el año " + CAR.birth_year +"."
+function addCAR(addi) {
+    dom["descripcion"].innerHTML = "Es "+ addi.gender + ". La altura es de " + addi.height + ", su peso es de: " + addi.mass + ". Su color de pelo: " + addi.hair_color + " y su color de piel es: " + addi.skin_color +", el de sus ojos es: " + addi.eye_color +". Nació en el año " + addi.birth_year +"."
 }
-function addPEL(PEL) {
-    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(PEL))
+function addPelicula(pelicula) {
+    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
     .then(r =>{
     
         let a = document.createElement('a')
@@ -46,7 +46,7 @@ function addPEL(PEL) {
     
         li.appendChild(a)
         a.innerText = r.title
-        dom['PEL'].appendChild(li)
+        dom['pelicula'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "films/" + aux
@@ -57,8 +57,8 @@ function addPEL(PEL) {
     })
 }
 
-function addPLA(PLA) {
-    obtenerPlanetas(PLA)
+function addPlaneta(planeta) {
+    obtenerPlanetas(planeta)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "planeta.html"
@@ -68,7 +68,7 @@ function addPLA(PLA) {
         
         li.appendChild(a)
         a.innerText = r.name
-        dom['PL'].appendChild(li)
+        dom['planeta'].appendChild(li)
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "planets/" + aux
 
@@ -81,8 +81,8 @@ function addPLA(PLA) {
 }
 
 
-function addNAV(NAV) {
-    obtenerNaves(NAV)
+function addNave(nave) {
+    obtenerNaves(nave)
     .then(r =>{
 
         let a = document.createElement('a')
@@ -93,7 +93,7 @@ function addNAV(NAV) {
     
         li.appendChild(a)
         a.innerText = r.name
-        dom['NA'].appendChild(li)
+        dom['nave'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "starships/" + aux
@@ -105,8 +105,8 @@ function addNAV(NAV) {
 }
 
 
-function addVEH(VEH) {
-    obtenerVehiculos(VEH)
+function addVeh(veh) {
+    obtenerVehiculos(veh)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "vehiculo.html"
@@ -116,7 +116,7 @@ function addVEH(VEH) {
     
         li.appendChild(a)
         a.innerText = r.name
-        dom['VE'].appendChild(li)
+        dom['veh'].appendChild(li)
         
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "vehicles/" + aux
@@ -128,8 +128,8 @@ function addVEH(VEH) {
 }
 
 
-function addESP(ESP) {
-    obtenerEspecies(ESP)
+function addEspecie(especie) {
+    obtenerEspecies(especie)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "especie.html"
@@ -137,7 +137,7 @@ function addESP(ESP) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['ES'].appendChild(li)
+        dom['especie'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "species/" + aux

@@ -1,26 +1,27 @@
-"use strict";
-
 let dom = {}
 var term = sessionStorage.getItem("term");
 window.onload = () => {
 
-    dom["NOM"] = document.getElementById("NOM")
-    dom["PEL"] = document.getElementById("PEL")
-    dom["PE"] = document.getElementById("PE")
-    dom["CLA"] = document.getElementById("CLA")
-    dom["DES"] = document.getElementById("DES")
-    dom["AVH"] = document.getElementById("AVH")
-    dom["SKI"] = document.getElementById("SKI")
-    dom["HAI"] = document.getElementById("HAI")
-    dom["AVL"] = document.getElementById("AVL")
-    dom["HOM"] = document.getElementById("HOM")
-    dom["LAN"] = document.getElementById("LAN")
+    dom["nombre"] = document.getElementById("nombre")
+    dom["pelicula"] = document.getElementById("pelicula")
+    dom["personaje"] = document.getElementById("personaje")
+    dom["nom"] = document.getElementById("nom")
+    dom["clase"] = document.getElementById("clase")
+    dom["descrip"] = document.getElementById("descrip")
+    dom["altura"] = document.getElementById("altura")
+    dom["piel"] = document.getElementById("piel")
+    dom["pelo"] = document.getElementById("pelo")
+    dom["vida"] = document.getElementById("vida")
+    dom["planeta"] = document.getElementById("planeta")
+    dom["lan"] = document.getElementById("lan")
+    dom["gen"] = document.getElementById("gen")
+
     
     obtenerEspecies(term)
     .then(r => {
-        dom["NOM"].innerHTML = r.name
-        r.films.forEach(addPEL)
-        r.people.forEach(addPER)
+        dom["nombre"].innerHTML = r.name
+        r.films.forEach(addPeliculas)
+        r.people.forEach(addPersonajes)
         addPRO(r)
 
     })
@@ -31,21 +32,22 @@ window.onload = () => {
     dom['Back'].onclick = ClickB
 }
 
-function addPRO(PRO) {
-    CLA.innerHTML = "Claificación: " + PRO.classification
-    DES.innerHTML = "Designación: " + PRO.designation
-    AVH.innerHTML = "Altura promedio: " + PRO.average_height
-    SKI.innerHTML = "Colores de piel: " + PRO.skin_colors
-    HAI.innerHTML = "Colores de pelo: " + PRO.hair_colors
-    AVL.innerHTML = "Esperanza de vida: " + PRO.average_lifespan
-    obtenerPlanetas(PRO.homeworld)
-    .then(r => HOM.innerHTML = "Planeta madre: " + r.name)
-    LA
+function addPRO(addi) { //añadir la info de la especie
+    clase.innerHTML = "Clasificación: " + addi.classification
+    descrip.innerHTML = "Designación: " + addi.designation
+    altura.innerHTML = "Altura promedio: " + addi.average_height
+    piel.innerHTML = "Colores de piel: " + addi.skin_colors
+    pelo.innerHTML = "Colores de pelo: " + addi.hair_colors
+    vida.innerHTML = "Esperanza de vida: " + addi.average_lifespan + " años"
+    lan.innerHTML = "Idiomas: " + addi.language
+    gen.innerHTML ="Color de ojos: " + addi.eye_colors
+    nom.innerHTML = "Nombre: " + addi.name
+
 }
 
 
-function addPEL(PEL) {
-    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(PEL))
+function addPeliculas(pelicula) { //añadir las peliculas
+    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula)) //obtenerPeliculas(pelicula)
     .then(r =>{
     
         let a = document.createElement('a')
@@ -55,7 +57,7 @@ function addPEL(PEL) {
     
         li.appendChild(a)
         a.innerText = r.title
-        dom['PEL'].appendChild(li)
+        dom['pelicula'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "films/" + aux
@@ -66,17 +68,17 @@ function addPEL(PEL) {
     })
 }
 
-function addPER(PERS) {
-    obtenerPersonajes(PERS)
+function addPersonajes(personaje) { //añadir los personajes
+    obtenerPersonajes(personaje)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "personaje.html"
         
     
         let li = document.createElement('li')
-        li.appendChild(a)
+        li.appendChild(a) //añadimos el personaje a la lista
         a.innerText = r.name
-        dom['PE'].appendChild(li)
+        dom['personaje'].appendChild(li)
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "people/" + aux
         
@@ -86,7 +88,6 @@ function addPER(PERS) {
       }
     })
 }
-
 
   
 function ClickB() {

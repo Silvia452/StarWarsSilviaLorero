@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d98213c-1dfc-48ac-9e8a-bc6a1f017cde" name="Changes" comment="" />
+    <list default="true" id="2d98213c-1dfc-48ac-9e8a-bc6a1f017cde" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/info.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/especie.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/especie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/especie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/especie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pelicula.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/peliculaSc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personaje.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/personaje.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personaje.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/personaje.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planeta.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/planeta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swapi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/swapi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vehiculo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehiculo.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MBDRIpxiVNYaWeB80AYJBqzCJz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -15,11 +47,19 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/Sally/Desktop/StarWarsSilviaLorero/src",
+    "list.type.of.created.stylesheet": "CSS"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -28,8 +68,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677232074129</updated>
+      <workItem from="1677232076031" duration="197000" />
+      <workItem from="1677232776730" duration="4223000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -1,5 +1,3 @@
-
-
 body{
     background: url(http://wallpapercave.com/wp/pEeUsp1.jpg);
     color: yellow;
@@ -18,7 +16,7 @@ body{
     overflow-y: scroll;
 } */
 
-#Container{
+#contenido{
     display: flex;
     justify-content: space-evenly;
     height: auto;
@@ -28,7 +26,7 @@ body{
 
 }
 
-#CO{
+#agrupacion{
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -40,7 +38,7 @@ body{
 
 }
 
-#Container > div > div{
+#contenido > div > div{
     text-align: left;
     overflow-y: scroll;
 }
@@ -52,15 +50,15 @@ a {
     color: white;
 }
 
-#Container > div > div::-webkit-scrollbar {
+#contenido > div > div::-webkit-scrollbar {
     width: 12px;
 }
   
-#Container > div > div::-webkit-scrollbar-track {
+#contenido > div > div::-webkit-scrollbar-track {
     background: none;
 }
   
-#Container > div > div::-webkit-scrollbar-thumb {
+#contenido > div > div::-webkit-scrollbar-thumb {
     background-color: gray;
     border-radius: 20px;
     border: 3px solid black; 
