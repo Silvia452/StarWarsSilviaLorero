@@ -4,24 +4,25 @@ let dom = {}
 var term = sessionStorage.getItem("term");
 window.onload = () => {
 
-    dom["NOM"] = document.getElementById("NOM")
-    dom["PEL"] = document.getElementById("PEL")
-    dom["PE"] = document.getElementById("PE")
-    dom["CLI"] = document.getElementById("CLI")
-    dom["GRA"] = document.getElementById("GRA")
-    dom["TER"] = document.getElementById("TER")
-    dom["SOF"] = document.getElementById("SOF")
-    dom["POP"] = document.getElementById("POP")
-    dom["ROT"] = document.getElementById("ROT")
-    dom["ORB"] = document.getElementById("ORB")
-    dom["DIA"] = document.getElementById("DIA")
+    dom["nombre"] = document.getElementById("nombre")
+    dom["pelicula"] = document.getElementById("pelicula")
+    dom["personaje"] = document.getElementById("personaje")
+    dom["name"] = document.getElementById("name")
+    dom["clima"] = document.getElementById("clima")
+    dom["grav"] = document.getElementById("grav")
+    dom["terreno"] = document.getElementById("terreno")
+    dom["surface"] = document.getElementById("surface")
+    dom["popul"] = document.getElementById("popul")
+    dom["rotation"] = document.getElementById("rotation")
+    dom["orbit"] = document.getElementById("orbit")
+    dom["diam"] = document.getElementById("diam")
     
     obtenerPlanetas(term)
     .then(r => {
-        dom["NOM"].innerHTML = r.name
-        r.films.forEach(addPEL)
-        r.residents.forEach(addPER)
-        addPRO(r)
+        dom["nombre"].innerHTML = r.name
+        r.films.forEach(addPelicula)
+        r.residents.forEach(addPersonaje)
+        addPropiedades(r)
 
     })
     
@@ -34,22 +35,23 @@ window.onload = () => {
 
 
 }
-function addPRO(PRO) {
-    CLI.innerHTML = "Clima: " + PRO.climate
-    GRA.innerHTML = "Gravedad: " + PRO.gravity
-    TER.innerHTML = "Terreno: " + PRO.terrain
-    SOF.innerHTML = "Superficie de Agua: " + PRO.surface_water
-    POP.innerHTML = "Populación: " + PRO.population
-    ROT.innerHTML = "Rotación: " + PRO.rotation_period
-    ORB.innerHTML = "Órbita: " + PRO.orbital_period
-    DIA.innerHTML = "Diámetro: " + PRO.diameter
+function addPropiedades(addi) {
 
+    name.innerHTML = "Nombre: " + addi.name
+    clima.innerHTML = "Clima: " + addi.climate
+    diam.innerHTML = "Diámetro: " + addi.diameter
+    popul.innerHTML = "Población: " + addi.population
+    rotation.innerHTML = "Rotación: " + addi.rotation_period
+    orbit.innerHTML = "Órbita: " + addi.orbital_period
+    grav.innerHTML = "Gravedad: " + addi.gravity
+    terreno.innerHTML = "Terreno: " + addi.terrain
+    surface.innerHTML = "Superficie de Agua: " + addi.surface_water
 
 }
 
 
-function addPEL(PEL) {
-    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(PEL))
+function addPelicula(pelicula) {
+    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
     .then(r =>{
     
         let a = document.createElement('a')
@@ -59,7 +61,7 @@ function addPEL(PEL) {
     
         li.appendChild(a)
         a.innerText = r.title
-        dom['PEL'].appendChild(li)
+        dom['pelicula'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "films/" + aux
@@ -71,8 +73,8 @@ function addPEL(PEL) {
 }
 
 
-function addPER(PERS) {
-    obtenerPersonajes(PERS)
+function addPersonaje(personaje) {
+    obtenerPersonajes(personaje)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "personaje.html"
@@ -81,7 +83,7 @@ function addPER(PERS) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['PE'].appendChild(li)
+        dom['personaje'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "people/" + aux

@@ -1,0 +1,67 @@
+
+
+h1{
+    text-align: center;
+    margin-left: 40px;
+}
+
+#descripcion{
+
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 15px;
+}
+
+#contenido{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+body{
+    background: url(http://3.bp.blogspot.com/_cm7BWBgMjFU/TL2bYhSlmlI/AAAAAAAACOw/tiJo34Vf_hA/s1600/pseudo-noss-small.gif);
+    color: yellow;
+    letter-spacing: 2px;
+}
+
+
+#agrupacion{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+    width: 240px;
+    height: 450px;
+    overflow: hidden;
+    border: 1px solid midnightblue;
+    box-shadow:midnightblue 0px 1px 8px 5px;
+    background-color: rgba(70, 70, 128, 0.744);
+
+
+}
+
+#contenido > div > div{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: left;
+}
+
+
+li{
+    margin-left:10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+#Back{
+    text-align: center;
+    margin-top: 20px;
+}

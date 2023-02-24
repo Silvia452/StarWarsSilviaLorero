@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d98213c-1dfc-48ac-9e8a-bc6a1f017cde" name="Changes" comment="">
+    <list default="true" id="2d98213c-1dfc-48ac-9e8a-bc6a1f017cde" name="Changes" comment="Falta plan, veh, pelicula y hacer CSS">
+      <change afterPath="$PROJECT_DIR$/src/especie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pelicula.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/personaje.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/info.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/especie.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/especie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/especie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/especie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/info.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nave.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nave.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pelicula.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/peliculaSc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pelicula.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/personaje.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/personaje.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/personaje.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/personaje.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/planeta.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/planeta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swapi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/swapi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planeta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/planeta.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vehiculo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehiculo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vehiculo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehiculo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,16 +48,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/Sally/Desktop/StarWarsSilviaLorero/src",
-    "list.type.of.created.stylesheet": "CSS"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/Sally/Desktop/StarWarsSilviaLorero/src&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -69,8 +72,20 @@
       <option name="presentableId" value="Default" />
       <updated>1677232074129</updated>
       <workItem from="1677232076031" duration="197000" />
-      <workItem from="1677232776730" duration="4223000" />
+      <workItem from="1677232776730" duration="4872000" />
+      <workItem from="1677239715588" duration="2006000" />
+      <workItem from="1677241905100" duration="1101000" />
+      <workItem from="1677243051931" duration="33000" />
+      <workItem from="1677243152838" duration="5245000" />
     </task>
+    <task id="LOCAL-00001" summary="Falta plan, veh, pelicula y hacer CSS">
+      <created>1677237279726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677237279726</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,5 +101,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Falta plan, veh, pelicula y hacer CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Falta plan, veh, pelicula y hacer CSS" />
   </component>
 </project>

@@ -1,0 +1,71 @@
+#contenido{
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    margin-left:5% ;
+    margin-right: 5%;
+
+
+}
+
+h1{
+    text-align: center;
+
+}
+
+body{
+    background: url(http://3.bp.blogspot.com/_cm7BWBgMjFU/TL2bYhSlmlI/AAAAAAAACOw/tiJo34Vf_hA/s1600/pseudo-noss-small.gif);
+    color: yellow;
+    letter-spacing: 2px;
+}
+
+#descripcion{
+
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 15px;
+}
+
+
+#agrupacion{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: rgba(70, 70, 128, 0.744);
+    width: 300px;
+    height: 440px;
+    overflow: hidden;
+    border: 1px solid midnightblue;
+    box-shadow:midnightblue 0px 1px 8px 5px;
+
+}
+
+#pelicula {
+    text-align: left;
+
+}
+
+#personaje{
+    text-align: left;
+}
+
+#propiedades{
+    text-align: left;
+}
+
+li{
+    margin-left:10px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+#Back{
+    text-align: center;
+    margin-top: 20px;
+}
+
+

@@ -25,7 +25,7 @@ window.onload = () => {
         dom["nombre"].innerHTML = r.name
         r.films.forEach(addPelicula)
         r.pilots.forEach(addPersonaje)
-        addPRO(r)
+        addPropiedades(r)
 
     })
     
@@ -36,7 +36,7 @@ window.onload = () => {
 
 }
 
-function addPRO(addi) {
+function addPropiedades(addi) {
     modelo.innerHTML = "Modelo: " + addi.model
     clasenav.innerHTML = "Clase de nave: " + addi.starship_class
     fab.innerHTML = "Fabricante: " + addi.manufacturer

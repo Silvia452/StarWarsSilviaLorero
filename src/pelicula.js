@@ -4,24 +4,24 @@ let dom = {}
 var term = sessionStorage.getItem("term");
 window.onload = () => {
 
-    dom['OP'] = document.getElementById('OP')
-    dom["TI"] = document.getElementById("TI")
-    dom["PE"] = document.getElementById("PE")
-    dom["PL"] = document.getElementById("PL")
-    dom["VE"] = document.getElementById("VE")
-    dom["NA"] = document.getElementById("NA")
-    dom["ES"] = document.getElementById("ES")
+    dom['descripcion'] = document.getElementById('descripcion')
+    dom["titulo"] = document.getElementById("titulo")
+    dom["personaje"] = document.getElementById("personaje")
+    dom["planeta"] = document.getElementById("planeta")
+    dom["veh"] = document.getElementById("veh")
+    dom["nave"] = document.getElementById("nave")
+    dom["especie"] = document.getElementById("especie")
 
 
     obtenerPeliculas(term)
     .then(r => {
-        dom["TI"].innerHTML = r.title +" (Episode " + r.episode_id + ")"
-        dom["OP"].innerHTML = r.opening_crawl
-        r.characters.forEach(addPER)
-        r.planets.forEach(addPLA)
-        r.starships.forEach(addNAV)
-        r.vehicles.forEach(addVEH)
-        r.species.forEach(addESP)
+        dom["titulo"].innerHTML = r.title +" (Episode " + r.episode_id + ")"
+        dom["descripcion"].innerHTML = r.opening_crawl
+        r.characters.forEach(addPersonaje)
+        r.planets.forEach(addPlaneta)
+        r.starships.forEach(addNave)
+        r.vehicles.forEach(addVeh)
+        r.species.forEach(addEspecie)
     })
     
     
@@ -33,8 +33,8 @@ window.onload = () => {
 
 
 }
-function addPER(PERS) {
-    obtenerPersonajes(PERS)
+function addPersonaje(personaje) {
+    obtenerPersonajes(personaje)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "personaje.html"
@@ -42,7 +42,7 @@ function addPER(PERS) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['PE'].appendChild(li)
+        dom['personaje'].appendChild(li)
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "people/" + aux
         
@@ -53,8 +53,8 @@ function addPER(PERS) {
     })
 }
 
-function addPLA(PLA) {
-    obtenerPlanetas(PLA)
+function addPlaneta(planeta) {
+    obtenerPlanetas(planeta)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "planeta.html"
@@ -62,7 +62,7 @@ function addPLA(PLA) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['PL'].appendChild(li)
+        dom['planeta'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "planets/" + aux
@@ -74,8 +74,8 @@ function addPLA(PLA) {
     })
 }
 
-function addNAV(NAV) {
-    obtenerNaves(NAV)
+function addNave(nave) {
+    obtenerNaves(nave)
     .then(r =>{
 
         let a = document.createElement('a')
@@ -84,7 +84,7 @@ function addNAV(NAV) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['NA'].appendChild(li)
+        dom['nave'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "starships/" + aux
@@ -96,8 +96,8 @@ function addNAV(NAV) {
 }
 
 
-function addVEH(VEH) {
-    obtenerVehiculos(VEH)
+function addVeh(veh) {
+    obtenerVehiculos(veh)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "vehiculo.html"
@@ -105,7 +105,7 @@ function addVEH(VEH) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['VE'].appendChild(li)
+        dom['veh'].appendChild(li)
         
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "vehicles/" + aux
@@ -117,8 +117,8 @@ function addVEH(VEH) {
 }
 
 
-function addESP(ESP) {
-    obtenerEspecies(ESP)
+function addEspecie(especie) {
+    obtenerEspecies(especie)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "especie.html"
@@ -126,7 +126,7 @@ function addESP(ESP) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['ES'].appendChild(li)
+        dom['especie'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "species/" + aux

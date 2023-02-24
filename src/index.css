@@ -1,37 +1,31 @@
+
+/*terminar css poner musica y letras star wars*/
 body{
-    background: url(http://wallpapercave.com/wp/pEeUsp1.jpg);
+    background: url(https://wallpapers.com/images/featured/5binreit9du28bif.jpg);
     color: yellow;
     letter-spacing: 2px;
 }
-h1{
-    display: flex;
-    justify-content: space-evenly;
-    margin-left:25% ;
-    margin-right: 25%;
-    
-    margin-top: 100px;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: rgba(128, 128, 128, 0.568);
 
-}
 
 ul{
+    margin-left:5% ;
+    margin-right:5%;
     display: flex;
     justify-content: space-evenly;
     height: auto;
     margin-top: 200px;
-    margin-left:5% ;
-    margin-right: 5%;
+
 }
+
 
 div{
     font-size: larger;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*poner flex en columna*/
     border-radius: 10px;
     padding: 10px;
-    background-color: rgba(128, 128, 128, 0.568);
+    border: 1px solid red;
+    box-shadow: red 0px 1px 8px 5px;
 
 }

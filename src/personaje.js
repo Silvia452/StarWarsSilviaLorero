@@ -1,4 +1,4 @@
-"use strict";
+//PERSONAJES
 
 let dom = {}
 var term = sessionStorage.getItem("term");
@@ -15,7 +15,7 @@ window.onload = () => {
     obtenerPersonajes(term)
     .then(r => {
         dom["nombre"].innerHTML = r.name
-        addCAR(r)
+        addCaracter(r)
         r.films.forEach(addPelicula)
         addPlaneta(r.homeworld)
         r.starships.forEach(addNave)
@@ -32,9 +32,12 @@ window.onload = () => {
 
 
 }
-function addCAR(addi) {
-    dom["descripcion"].innerHTML = "Es "+ addi.gender + ". La altura es de " + addi.height + ", su peso es de: " + addi.mass + ". Su color de pelo: " + addi.hair_color + " y su color de piel es: " + addi.skin_color +", el de sus ojos es: " + addi.eye_color +". Nació en el año " + addi.birth_year +"."
+function addCaracter(addi) {
+    dom["descripcion"].innerHTML = "Descripción del personaje:\n" +
+        "Es "+ addi.gender +
+        ". La altura es de " + addi.height + ", su peso es de: " + addi.mass + ". Su color de pelo: " + addi.hair_color + " y su color de piel es: " + addi.skin_color +", el de sus ojos es: " + addi.eye_color +". Nació en el año " + addi.birth_year +"."
 }
+
 function addPelicula(pelicula) {
     obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
     .then(r =>{
@@ -62,8 +65,7 @@ function addPlaneta(planeta) {
     .then(r =>{
         let a = document.createElement('a')
         a.href = "planeta.html"
-        
-    
+
         let li = document.createElement('li')
         
         li.appendChild(a)
@@ -87,10 +89,7 @@ function addNave(nave) {
 
         let a = document.createElement('a')
         a.href = "nave.html"
-        
-    
         let li = document.createElement('li')
-    
         li.appendChild(a)
         a.innerText = r.name
         dom['nave'].appendChild(li)
@@ -110,8 +109,7 @@ function addVeh(veh) {
     .then(r =>{
         let a = document.createElement('a')
         a.href = "vehiculo.html"
-        
-    
+
         let li = document.createElement('li')
     
         li.appendChild(a)
