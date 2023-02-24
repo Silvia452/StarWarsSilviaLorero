@@ -7,7 +7,6 @@ window.onload = () => {
     dom["nombre"] = document.getElementById("nombre")
     dom["pelicula"] = document.getElementById("pelicula")
     dom["personaje"] = document.getElementById("personaje")
-    dom["name"] = document.getElementById("name")
     dom["clima"] = document.getElementById("clima")
     dom["grav"] = document.getElementById("grav")
     dom["terreno"] = document.getElementById("terreno")
@@ -22,7 +21,7 @@ window.onload = () => {
         dom["nombre"].innerHTML = r.name
         r.films.forEach(addPelicula)
         r.residents.forEach(addPersonaje)
-        addPropiedades(r)
+        addPRO(r)
 
     })
     
@@ -35,9 +34,8 @@ window.onload = () => {
 
 
 }
-function addPropiedades(addi) {
+function addPRO(addi) {
 
-    name.innerHTML = "Nombre: " + addi.name
     clima.innerHTML = "Clima: " + addi.climate
     diam.innerHTML = "Diámetro: " + addi.diameter
     popul.innerHTML = "Población: " + addi.population

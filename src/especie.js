@@ -22,7 +22,7 @@ window.onload = () => {
         dom["nombre"].innerHTML = r.name
         r.films.forEach(addPeliculas)
         r.people.forEach(addPersonajes)
-        addPropiedades(r)
+        addPRO(r)
 
     })
 
@@ -31,7 +31,7 @@ window.onload = () => {
     dom['Back'].onclick = ClickB
 }
 
-function addPropiedades(addi) { //añadir la info de la especie
+function addPRO(addi) { //añadir la info de la especie
     clase.innerHTML = "Clasificación: " + addi.classification
     descrip.innerHTML = "Designación: " + addi.designation
     altura.innerHTML = "Altura promedio: " + addi.average_height
