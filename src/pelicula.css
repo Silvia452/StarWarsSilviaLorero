@@ -1,5 +1,4 @@
 
-
 h1{
     text-align: center;
     margin-left: 40px;
@@ -22,9 +21,10 @@ h1{
 
 
 body{
+    letter-spacing: 2.5px;
     background: url(http://3.bp.blogspot.com/_cm7BWBgMjFU/TL2bYhSlmlI/AAAAAAAACOw/tiJo34Vf_hA/s1600/pseudo-noss-small.gif);
     color: yellow;
-    letter-spacing: 2px;
+
 }
 
 

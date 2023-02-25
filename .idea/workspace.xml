@@ -3,23 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2d98213c-1dfc-48ac-9e8a-bc6a1f017cde" name="Changes" comment="Falta cambiar funciones y await">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/especie.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/especie.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/especie.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/especie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/especie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/especie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nave.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pelicula.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pelicula.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pelicula.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pelicula.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/personaje.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/personaje.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/personaje.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/personaje.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/personaje.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/personaje.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/planeta.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/planeta.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/planeta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/planeta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehiculo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehiculo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swapi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/swapi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vehiculo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehiculo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +66,7 @@
       <workItem from="1677241905100" duration="1101000" />
       <workItem from="1677243051931" duration="33000" />
       <workItem from="1677243152838" duration="6913000" />
-      <workItem from="1677323697301" duration="2073000" />
+      <workItem from="1677323697301" duration="2918000" />
     </task>
     <task id="LOCAL-00001" summary="Falta plan, veh, pelicula y hacer CSS">
       <created>1677237279726</created>
@@ -100,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677254392135</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Falta cambiar funciones y await">
+      <created>1677326997161</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677326997161</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

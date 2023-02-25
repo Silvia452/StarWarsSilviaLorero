@@ -17,6 +17,7 @@ window.onload = () => {
     dom["capac"] = document.getElementById("capac")
     dom["consum"] = document.getElementById("consum")
     dom["clasenav"] = document.getElementById("clasenav")
+
     obtenerVehiculos(term)
     .then(r => {
         dom["nombre"].innerHTML = r.name
@@ -33,7 +34,7 @@ window.onload = () => {
 }
 
 
-function addPropiedades(addi) {
+function addPropiedades(addi) { //añadir propiedades
     modelo.innerHTML = "Modelo: " + addi.model
     fab.innerHTML = "Fabricante: " + addi.manufacturer
     coste.innerHTML = "Coste: " + addi.cost
@@ -52,41 +53,39 @@ function addPelicula(pelicula) {
     obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
     .then(r =>{
     
-        let a = document.createElement('a')
+        let a = document.createElement('a') //creamos un elemento a
         a.href = "pelicula.html"
     
         let li = document.createElement('li')
-    
         li.appendChild(a)
         a.innerText = r.title
-        dom['pelicula'].appendChild(li)
+        dom['pelicula'].appendChild(li) //añadimos el elemento a a la lista de peliculas
 
-        var aux = obtenerURLRecursoSWAPI(r.url)
+        var aux = obtenerURLRecursoSWAPI(r.url) //obtenemos el id de la pelicula
         a.id = "films/" + aux
         a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
+            term = a.id //guardamos el id en la variable term
+            sessionStorage.setItem("term", term); //guardamos el id en el sessionStorage
       }
     })
 }
 
-function addPersonaje(personaje) {
+function addPersonaje(personaje) { //mismo proceso que para peliculas
     obtenerPersonajes(personaje)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "personaje.html"
-        
     
         let li = document.createElement('li')
         li.appendChild(a)
-        a.innerText = r.name
+        a.innerText = r.name //añadimos el nombre del personaje
         dom['personaje'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "people/" + aux
+        a.id = "people/" + aux //guardamos el id en la variable term
         a.onmouseover = () => {
             term = a.id
-            sessionStorage.setItem("term", term);
+            sessionStorage.setItem("term", term); //guardamos el id en el sessionStorage
       }
     })
 }

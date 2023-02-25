@@ -1,7 +1,7 @@
 //PLANETAS
 
 let dom = {}
-var term = sessionStorage.getItem("term");
+var term = sessionStorage.getItem("term"); //obtiene el id del planeta del sessionStorage
 window.onload = () => {
 
     dom["nombre"] = document.getElementById("nombre")
@@ -16,12 +16,12 @@ window.onload = () => {
     dom["orbit"] = document.getElementById("orbit")
     dom["diam"] = document.getElementById("diam")
     
-    obtenerPlanetas(term)
+    obtenerPlanetas(term) //obtiene los datos del planeta
     .then(r => {
         dom["nombre"].innerHTML = r.name
         r.films.forEach(addPelicula)
         r.residents.forEach(addPersonaje)
-        addPRO(r)
+        addPropiedades(r)
 
     })
     
@@ -34,8 +34,7 @@ window.onload = () => {
 }
 
 
-function addPRO(addi) {
-
+function addPropiedades(addi) { //añade las propiedades de cada planeta
     clima.innerHTML = "Clima: " + addi.climate
     diam.innerHTML = "Diámetro: " + addi.diameter
     grav.innerHTML = "Gravedad: " + addi.gravity
@@ -48,35 +47,33 @@ function addPRO(addi) {
 }
 
 
-function addPelicula(pelicula) {
+function addPelicula(pelicula) { //añade las peliculas de cada planeta
     obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
     .then(r =>{
     
-        let a = document.createElement('a')
+        let a = document.createElement('a') //crea un elemento a
         a.href = "pelicula.html"
     
-        let li = document.createElement('li')
-    
+        let li = document.createElement('li') //crea un elemento li
         li.appendChild(a)
-        a.innerText = r.title
-        dom['pelicula'].appendChild(li)
+        a.innerText = r.title //añade el titulo de la pelicula al elemento a
+        dom['pelicula'].appendChild(li) //añade el elemento li a la lista de peliculas
 
         var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "films/" + aux
+        a.id = "films/" + aux //añade el id a cada elemento a
         a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
+            term = a.id //guarda el id en la variable term
+            sessionStorage.setItem("term", term); //guarda la variable term en el sessionStorage
       }
     })
 }
 
 
-function addPersonaje(personaje) {
+function addPersonaje(personaje) { //añade los personajes de cada planeta
     obtenerPersonajes(personaje)
-    .then(r =>{
+    .then(r =>{ //añade los personajes de cada planeta
         let a = document.createElement('a')
         a.href = "personaje.html"
-        
     
         let li = document.createElement('li')
         li.appendChild(a)
@@ -84,10 +81,10 @@ function addPersonaje(personaje) {
         dom['personaje'].appendChild(li)
 
         var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "people/" + aux
+        a.id = "people/" + aux //añade el id a cada elemento a
         a.onmouseover = () => {
             term = a.id
-            sessionStorage.setItem("term", term);
+            sessionStorage.setItem("term", term); //guarda la variable term en el sessionStorage
       }
     })
 }

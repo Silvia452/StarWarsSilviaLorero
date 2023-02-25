@@ -1,7 +1,7 @@
 //NAVES
 
 let dom = {}
-var term = sessionStorage.getItem("term");
+var term = sessionStorage.getItem("term"); //obtiene el id de la nave del sessionStorage
 window.onload = () => {
 
     dom["nombre"] = document.getElementById("nombre")
@@ -25,7 +25,7 @@ window.onload = () => {
         dom["nombre"].innerHTML = r.name
         r.films.forEach(addPelicula)
         r.pilots.forEach(addPersonaje)
-        addPRO(r)
+        addPropiedades(r)
 
     })
 
@@ -41,7 +41,7 @@ function butonAtras() {
 }
 
 
-function addPRO(addi) {
+function addPropiedades(addi) {
     modelo.innerHTML = "Modelo: " + addi.model
     clasenav.innerHTML = "Clase de nave: " + addi.starship_class
     fab.innerHTML = "Fabricante: " + addi.manufacturer
@@ -55,28 +55,25 @@ function addPRO(addi) {
     hyperdrive.innerHTML = "Calificación de hiperimpulsor: " + addi.hyperdrive_rating
     megalaser.innerHTML = "MGLT: " + addi.MGLT
 
-
-
 }
 
-function addPelicula(pelicula) {
+function addPelicula(pelicula) { //añade las películas a la lista
     obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
     .then(r =>{
     
         let a = document.createElement('a')
         a.href = "pelicula.html"
     
-        let li = document.createElement('li')
-    
+        let li = document.createElement('li') //crea un elemento li
         li.appendChild(a)
         a.innerText = r.title
-        dom['pelicula'].appendChild(li)
+        dom['pelicula'].appendChild(li) //añade el elemento li a la lista
 
         var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "films/" + aux
+        a.id = "films/" + aux //añade el id de la película al elemento a
         a.onmouseover = () => {
             term = a.id
-            sessionStorage.setItem("term", term);
+            sessionStorage.setItem("term", term); //guarda el id de la película en el sessionStorage
       }
     })
 }
@@ -91,13 +88,13 @@ function addPersonaje(personaje) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['personaje'].appendChild(li)
-        var aux = obtenerURLRecursoSWAPI(r.url)
+        dom['personaje'].appendChild(li) //añade el elemento li a la lista
+        var aux = obtenerURLRecursoSWAPI(r.url) //obtiene el id del personaje
         a.id = "people/" + aux
         
         a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
+            term = a.id //guarda el id del personaje en la variable term
+            sessionStorage.setItem("term", term); //guarda el id del personaje en el sessionStorage
       }
     })
 }

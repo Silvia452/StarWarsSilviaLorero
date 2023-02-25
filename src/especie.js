@@ -24,7 +24,7 @@ window.onload = () => {
         dom["nombre"].innerHTML = r.name
         r.films.forEach(addPeliculas)
         r.people.forEach(addPersonajes)
-        addPRO(r)
+        addPropiedades(r)
 
     })
 
@@ -34,12 +34,12 @@ window.onload = () => {
     dom['atras'].onclick = buttonAtras
 }
 
-function buttonAtras() {
+function buttonAtras() { //vuelve a la página principal
     window.open("index.html", "_self")
 }
 
 
-function addPRO(addi) { //añadir la info de la especie
+function addPropiedades(addi) { //añadir la info de la especie
     clase.innerHTML = "Clasificación: " + addi.classification
     descrip.innerHTML = "Designación: " + addi.designation
     altura.innerHTML = "Altura promedio: " + addi.average_height
@@ -66,10 +66,10 @@ function addPeliculas(pelicula) { //añadir las peliculas
         dom['pelicula'].appendChild(li) //añadimos la lista a la pagina
 
         var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "films/" + aux
+        a.id = "films/" + aux //añadimos el id de la pelicula al a
         a.onmouseover = () => {
             term = a.id
-            sessionStorage.setItem("term", term);
+            sessionStorage.setItem("term", term); //guardamos el id de la pelicula en el sessionStorage
       }
     })
 }
@@ -88,7 +88,7 @@ function addPersonajes(personaje) { //añadir los personajes
         a.id = "people/" + aux
         
         a.onmouseover = () => {
-            term = a.id
+            term = a.id //guardamos el id del personaje en el sessionStorage
             sessionStorage.setItem("term", term);
       }
     })

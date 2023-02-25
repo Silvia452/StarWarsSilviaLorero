@@ -1,7 +1,7 @@
 //PELICULAS
 
 let dom = {}
-var term = sessionStorage.getItem("term");
+var term = sessionStorage.getItem("term"); //obtiene el id de la película del sessionStorage
 window.onload = () => {
 
     dom['descripcion'] = document.getElementById('descripcion')
@@ -19,7 +19,7 @@ window.onload = () => {
         dom["descripcion"].innerHTML = r.opening_crawl
         r.characters.forEach(addPersonaje)
         r.planets.forEach(addPlaneta)
-        r.starships.forEach(addNave)
+        r.starships.forEach(addNave) //añade las naves a la lista de naves
         r.vehicles.forEach(addVeh)
         r.species.forEach(addEspecie)
     })
@@ -36,18 +36,18 @@ function buttonAtras() {
 
 }
 
-function addPersonaje(personaje) {
+function addPersonaje(personaje) { //añade los personajes a la lista de personajes
     obtenerPersonajes(personaje)
     .then(r =>{
-        let a = document.createElement('a')
+        let a = document.createElement('a') //crea un elemento a
         a.href = "personaje.html"
     
         let li = document.createElement('li')
         li.appendChild(a)
-        a.innerText = r.name
+        a.innerText = r.name //nombre del personaje
         dom['personaje'].appendChild(li)
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "people/" + aux
+        var aux = obtenerURLRecursoSWAPI(r.url) //obtiene el id del personaje
+        a.id = "people/" + aux //añade el id a cada elemento a
         
         a.onmouseover = () => {
             term = a.id
@@ -56,19 +56,19 @@ function addPersonaje(personaje) {
     })
 }
 
-function addPlaneta(planeta) {
+function addPlaneta(planeta) { //añade los planetas a la lista de planetas
     obtenerPlanetas(planeta)
     .then(r =>{
         let a = document.createElement('a')
         a.href = "planeta.html"
         
-        let li = document.createElement('li')
+        let li = document.createElement('li') //crea un elemento li
         li.appendChild(a)
         a.innerText = r.name
-        dom['planeta'].appendChild(li)
+        dom['planeta'].appendChild(li) //añade el elemento li a la lista de planetas
 
         var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "planets/" + aux
+        a.id = "planets/" + aux //añade el id a cada elemento a
         a.onmouseover = () => {
             term = a.id
             sessionStorage.setItem("term", term);
@@ -77,7 +77,7 @@ function addPlaneta(planeta) {
     })
 }
 
-function addNave(nave) {
+function addNave(nave) { //añade las naves a la lista de naves
     obtenerNaves(nave)
     .then(r =>{
 
@@ -87,10 +87,10 @@ function addNave(nave) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['nave'].appendChild(li)
+        dom['nave'].appendChild(li) //añade el elemento li a la lista de naves
 
         var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "starships/" + aux
+        a.id = "starships/" + aux  //añade el id a cada elemento a
         a.onmouseover = () => {
             term = a.id
             sessionStorage.setItem("term", term);
@@ -99,7 +99,7 @@ function addNave(nave) {
 }
 
 
-function addVeh(veh) {
+function addVeh(veh) { //añade los vehículos a la lista de vehículos
     obtenerVehiculos(veh)
     .then(r =>{
         let a = document.createElement('a')
@@ -108,19 +108,19 @@ function addVeh(veh) {
         let li = document.createElement('li')
         li.appendChild(a)
         a.innerText = r.name
-        dom['veh'].appendChild(li)
+        dom['veh'].appendChild(li) //añade el elemento li a la lista de vehículos
         
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "vehicles/" + aux
         a.onmouseover = () => {
             term = a.id
-            sessionStorage.setItem("term", term);
+            sessionStorage.setItem("term", term); //guarda el id del vehículo en el sessionStorage
           }
     })
 }
 
 
-function addEspecie(especie) {
+function addEspecie(especie) { //añade las especies a la lista de especies
     obtenerEspecies(especie)
     .then(r =>{
         let a = document.createElement('a')
