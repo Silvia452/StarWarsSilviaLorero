@@ -1,4 +1,4 @@
-"use strict";
+//VEHICULOS
 
 let dom = {}
 var term = sessionStorage.getItem("term");
@@ -25,10 +25,10 @@ window.onload = () => {
         addPropiedades(r)
     })
     
-    
-    dom['Back'] = document.getElementById('Back')
-    dom['Back'].style.cursor = "pointer"
-    dom['Back'].onclick = ClickB
+    //mismo proceso que para index
+    dom['atras'] = document.getElementById('atras')
+    dom['atras'].style.cursor = "pointer"
+    dom['atras'].onclick = buttonAtras
 
 }
 
@@ -92,6 +92,6 @@ function addPersonaje(personaje) {
 }
 
   
-function ClickB() {
+function buttonAtras() {
     window.open("index.html", "_self") //retorna a la página principal
 }

@@ -1,4 +1,4 @@
-"use strict";
+//NAVES
 
 let dom = {}
 var term = sessionStorage.getItem("term");
@@ -28,13 +28,18 @@ window.onload = () => {
         addPRO(r)
 
     })
-    
-    
-    dom['Back'] = document.getElementById('Back')
-    dom['Back'].style.cursor = "pointer"
-    dom['Back'].onclick = ClickB
+
+    //mismo proceso que para el index
+    dom['atras'] = document.getElementById('atras')
+    dom['atras'].style.cursor = "pointer"
+    dom['atras'].onclick = butonAtras
 
 }
+
+function butonAtras() {
+    window.open("index.html", "_self") //volver a página principal
+}
+
 
 function addPRO(addi) {
     modelo.innerHTML = "Modelo: " + addi.model
@@ -99,6 +104,3 @@ function addPersonaje(personaje) {
 
 
   
-function ClickB() {
-    window.open("index.html", "_self")
-}

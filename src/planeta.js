@@ -1,4 +1,4 @@
-"use strict";
+//PLANETAS
 
 let dom = {}
 var term = sessionStorage.getItem("term");
@@ -25,23 +25,23 @@ window.onload = () => {
 
     })
     
-    
-    dom['Back'] = document.getElementById('Back')
-    dom['Back'].style.cursor = "pointer"
-    dom['Back'].onclick = ClickB
 
-
-
+    //mismo proceso que para index
+    dom['atras'] = document.getElementById('atras')
+    dom['atras'].style.cursor = "pointer"
+    dom['atras'].onclick = buttonAtras
 
 }
+
+
 function addPRO(addi) {
 
     clima.innerHTML = "Clima: " + addi.climate
     diam.innerHTML = "Diámetro: " + addi.diameter
+    grav.innerHTML = "Gravedad: " + addi.gravity
     popul.innerHTML = "Población: " + addi.population
     rotation.innerHTML = "Rotación: " + addi.rotation_period
     orbit.innerHTML = "Órbita: " + addi.orbital_period
-    grav.innerHTML = "Gravedad: " + addi.gravity
     terreno.innerHTML = "Terreno: " + addi.terrain
     surface.innerHTML = "Superficie de Agua: " + addi.surface_water
 
@@ -93,7 +93,7 @@ function addPersonaje(personaje) {
 }
 
 
-  
-function ClickB() {
-    window.open("index.html", "_self")
+
+function buttonAtras() {
+    window.open("index.html", "_self") //volver a la pagina inicial
 }

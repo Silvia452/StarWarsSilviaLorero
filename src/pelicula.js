@@ -1,4 +1,4 @@
-"use strict";
+//PELICULAS
 
 let dom = {}
 var term = sessionStorage.getItem("term");
@@ -25,14 +25,17 @@ window.onload = () => {
     })
     
     
-    dom['Back'] = document.getElementById('Back')
-    dom['Back'].style.cursor = "pointer"
-    dom['Back'].onclick = ClickB
-
-    
-
+    dom['atras'] = document.getElementById('atras')
+    dom['atras'].style.cursor = "pointer"
+    dom['atras'].onclick = buttonAtras
 
 }
+
+function buttonAtras() {
+    window.open("index.html", "_self")
+
+}
+
 function addPersonaje(personaje) {
     obtenerPersonajes(personaje)
     .then(r =>{
@@ -137,7 +140,4 @@ function addEspecie(especie) {
     })
 }
   
-function ClickB() {
-    window.open("index.html", "_self")
-    
-}
+

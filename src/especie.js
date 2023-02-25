@@ -1,5 +1,7 @@
+//ESPECIES
+
 let dom = {}
-var term = sessionStorage.getItem("term");
+var term = sessionStorage.getItem("term"); //obtiene el id de la pelicula del sessionStorage
 window.onload = () => {
 
     dom["nombre"] = document.getElementById("nombre")
@@ -17,7 +19,7 @@ window.onload = () => {
     dom["gen"] = document.getElementById("gen")
 
     
-    obtenerEspecies(term)
+    obtenerEspecies(term) //obtenerEspecies("species/1")
     .then(r => {
         dom["nombre"].innerHTML = r.name
         r.films.forEach(addPeliculas)
@@ -26,10 +28,16 @@ window.onload = () => {
 
     })
 
-    dom['Back'] = document.getElementById('Back')
-    dom['Back'].style.cursor = "pointer"
-    dom['Back'].onclick = ClickB
+    //mismo proceso que para el index
+    dom['atras'] = document.getElementById('atras')
+    dom['atras'].style.cursor = "pointer"
+    dom['atras'].onclick = buttonAtras
 }
+
+function buttonAtras() {
+    window.open("index.html", "_self")
+}
+
 
 function addPRO(addi) { //añadir la info de la especie
     clase.innerHTML = "Clasificación: " + addi.classification
@@ -53,10 +61,9 @@ function addPeliculas(pelicula) { //añadir las peliculas
         a.href = "pelicula.html"
     
         let li = document.createElement('li')
-    
         li.appendChild(a)
         a.innerText = r.title
-        dom['pelicula'].appendChild(li)
+        dom['pelicula'].appendChild(li) //añadimos la lista a la pagina
 
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "films/" + aux
@@ -72,12 +79,11 @@ function addPersonajes(personaje) { //añadir los personajes
     .then(r =>{
         let a = document.createElement('a')
         a.href = "personaje.html"
-        
     
         let li = document.createElement('li')
         li.appendChild(a) //añadimos el personaje a la lista
         a.innerText = r.name
-        dom['personaje'].appendChild(li)
+        dom['personaje'].appendChild(li) //añadimos la lista a la pagina
         var aux = obtenerURLRecursoSWAPI(r.url)
         a.id = "people/" + aux
         
@@ -89,6 +95,3 @@ function addPersonajes(personaje) { //añadir los personajes
 }
 
   
-function ClickB() {
-    window.open("index.html", "_self")
-}

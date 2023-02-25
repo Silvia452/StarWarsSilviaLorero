@@ -3,7 +3,7 @@
 body{
     background: url(https://wallpapers.com/images/featured/5binreit9du28bif.jpg);
     color: yellow;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
 }
 
 
@@ -14,7 +14,11 @@ ul{
     justify-content: space-evenly;
     height: auto;
     margin-top: 200px;
+}
 
+a{
+    text-decoration: none;
+    color: yellow;
 }
 
 

@@ -23,19 +23,21 @@ window.onload = () => {
         r.species.forEach(addEspecie)
     })
     
-    
-    dom['Back'] = document.getElementById('Back')
-    dom['Back'].style.cursor = "pointer"
-    dom['Back'].onclick = ClickB
-
-
-
+    //mismo proceso que para index
+    dom['atras'] = document.getElementById('atras')
+    dom['atras'].style.cursor = "pointer"
+    dom['atras'].onclick = buttonAtras
 
 }
+
+function buttonAtras() { //vuelve a la página principal
+    window.open("index.html", "_self")
+}
+
 function addCaracter(addi) {
     dom["descripcion"].innerHTML = "Descripción del personaje:\n" +
         "Es "+ addi.gender +
-        ". La altura es de " + addi.height + ", su peso es de: " + addi.mass + ". Su color de pelo: " + addi.hair_color + " y su color de piel es: " + addi.skin_color +", el de sus ojos es: " + addi.eye_color +". Nació en el año " + addi.birth_year +"."
+        ". Mide " + addi.height + ", y pesa: " + addi.mass + ". Su color de pelo: " + addi.hair_color + " y su color de piel es: " + addi.skin_color +", el de sus ojos es: " + addi.eye_color +". Nació en: " + addi.birth_year +"."
 }
 
 function addPelicula(pelicula) {
@@ -146,6 +148,3 @@ function addEspecie(especie) {
     })
 }
   
-function ClickB() {
-    window.open("index.html", "_self")
-}
