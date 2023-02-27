@@ -18,15 +18,16 @@ window.onload = () => {
     dom["lan"] = document.getElementById("lan")
     dom["gen"] = document.getElementById("gen")
 
-    
+
     obtenerEspecies(term) //obtenerEspecies("species/1")
     .then(r => {
         dom["nombre"].innerHTML = r.name
-        r.films.forEach(addPeliculas)
-        r.people.forEach(addPersonajes)
+        r.films.forEach(addPelicula)
+        r.people.forEach(addPersonaje)
         addPropiedades(r)
 
     })
+
 
     //mismo proceso que para el index
     dom['atras'] = document.getElementById('atras')
@@ -53,45 +54,42 @@ function addPropiedades(addi) { //añadir la info de la especie
 }
 
 
-function addPeliculas(pelicula) { //añadir las peliculas
-    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula)) //obtenerPeliculas(pelicula)
-    .then(r =>{
-    
-        let a = document.createElement('a')
-        a.href = "pelicula.html"
-    
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.title
-        dom['pelicula'].appendChild(li) //añadimos la lista a la pagina
-
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "films/" + aux //añadimos el id de la pelicula al a
-        a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term); //guardamos el id de la pelicula en el sessionStorage
-      }
-    })
+async function addPelicula(pelicula) { //añade las peliculas
+    try {
+        const response = await obtenerPeliculas(`films/${obtenerURLRecursoSWAPI(pelicula)}`);
+        const peliculaURL = obtenerURLRecursoSWAPI(response.url);
+        const a = document.createElement('a');
+        a.href = 'pelicula.html';
+        a.id = `films/${peliculaURL}`; //guarda el id de la pelicula
+        a.innerText = response.title;
+        a.addEventListener('mouseover', () => { //al pasar el ratón por encima de la pelicula, guarda el id de la pelicula en el sessionStorage
+            sessionStorage.setItem('term', a.id);
+        });
+        const li = document.createElement('li'); //crea un elemento li
+        li.appendChild(a);
+        dom.pelicula.appendChild(li);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function addPersonajes(personaje) { //añadir los personajes
-    obtenerPersonajes(personaje)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "personaje.html"
-    
-        let li = document.createElement('li')
-        li.appendChild(a) //añadimos el personaje a la lista
-        a.innerText = r.name
-        dom['personaje'].appendChild(li) //añadimos la lista a la pagina
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "people/" + aux
-        
-        a.onmouseover = () => {
-            term = a.id //guardamos el id del personaje en el sessionStorage
-            sessionStorage.setItem("term", term);
-      }
-    })
+
+async function addPersonaje(personaje) { //añade los personajes
+    try {
+        const response = await obtenerPersonajes(personaje);
+        const personajeURL = obtenerURLRecursoSWAPI(response.url); //obtiene el id del personaje
+        const a = document.createElement('a');
+        a.href = 'personaje.html'; //cambiar a personaje.html
+        a.id = `people/${personajeURL}`;
+        a.innerText = response.name;
+        a.addEventListener('mouseover', () => {
+            sessionStorage.setItem('term', a.id); //guarda el id del personaje en el sessionStorage
+        });
+        const li = document.createElement('li');
+        li.appendChild(a);
+        dom.personaje.appendChild(li); //añade el personaje a la lista
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-  

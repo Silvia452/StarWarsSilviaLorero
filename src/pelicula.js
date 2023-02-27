@@ -36,108 +36,113 @@ function buttonAtras() {
 
 }
 
-function addPersonaje(personaje) { //añade los personajes a la lista de personajes
-    obtenerPersonajes(personaje)
-    .then(r =>{
-        let a = document.createElement('a') //crea un elemento a
-        a.href = "personaje.html"
-    
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name //nombre del personaje
-        dom['personaje'].appendChild(li)
-        var aux = obtenerURLRecursoSWAPI(r.url) //obtiene el id del personaje
-        a.id = "people/" + aux //añade el id a cada elemento a
-        
-        a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
-      }
-    })
-}
-
-function addPlaneta(planeta) { //añade los planetas a la lista de planetas
-    obtenerPlanetas(planeta)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "planeta.html"
-        
-        let li = document.createElement('li') //crea un elemento li
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['planeta'].appendChild(li) //añade el elemento li a la lista de planetas
-
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "planets/" + aux //añade el id a cada elemento a
-        a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
-          }
-        
-    })
-}
-
-function addNave(nave) { //añade las naves a la lista de naves
-    obtenerNaves(nave)
-    .then(r =>{
-
-        let a = document.createElement('a')
-        a.href = "nave.html"
-        
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['nave'].appendChild(li) //añade el elemento li a la lista de naves
-
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "starships/" + aux  //añade el id a cada elemento a
-        a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
-          }
-    })
+async function addPersonaje(personaje) {
+    try {
+        const response = await obtenerPersonajes(personaje);
+        const personajeURL = obtenerURLRecursoSWAPI(response.url); //obtiene el id del personaje
+        const a = document.createElement('a');
+        a.href = 'personaje.html'; //cambiar a personaje.html
+        a.id = `people/${personajeURL}`;
+        a.innerText = response.name;
+        a.addEventListener('mouseover', () => {
+            sessionStorage.setItem('term', a.id); //guarda el id del personaje en el sessionStorage
+        });
+        const li = document.createElement('li');
+        li.appendChild(a);
+        dom.personaje.appendChild(li); //añade el personaje a la lista
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 
-function addVeh(veh) { //añade los vehículos a la lista de vehículos
-    obtenerVehiculos(veh)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "vehiculo.html"
-        
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['veh'].appendChild(li) //añade el elemento li a la lista de vehículos
-        
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "vehicles/" + aux
+async function addPlaneta(planeta) { //añade el planeta
+    try {
+        const r = await obtenerPlanetas(planeta); //obtiene el planeta
+        let a = document.createElement('a');
+        a.href = "planeta.html";
+
+        let li = document.createElement('li');
+        li.appendChild(a); //añade el elemento a a la lista
+        a.innerText = r.name;
+        dom['planeta'].appendChild(li); //añade el planeta a la lista de planetas
+
+        var aux = obtenerURLRecursoSWAPI(r.url); //obtiene el id del planeta
+        a.id = "planets/" + aux;
         a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term); //guarda el id del vehículo en el sessionStorage
-          }
-    })
+            term = a.id;
+            sessionStorage.setItem("term", term); //guarda el id del planeta en el sessionStorage
+        };
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function addNave(nave) {
+    try {
+        const r = await obtenerNaves(nave); //obtiene la nave
+        let a = document.createElement('a');
+        a.href = "nave.html";
+
+        let li = document.createElement('li');
+        li.appendChild(a);
+        a.innerText = r.name;
+        dom['nave'].appendChild(li); //añade la nave a la lista de naves
+
+        var aux = obtenerURLRecursoSWAPI(r.url); //obtiene el id de la nave
+        a.id = "starships/" + aux; //guarda el id de la nave
+        a.onmouseover = () => {
+            term = a.id;
+            sessionStorage.setItem("term", term); //guarda el id de la nave en el sessionStorage
+        };
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 
-function addEspecie(especie) { //añade las especies a la lista de especies
-    obtenerEspecies(especie)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "especie.html"
-    
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['especie'].appendChild(li)
+async function addVeh(veh) {
+    try {
+        const r = await obtenerVehiculos(veh);
+        let a = document.createElement('a');
+        a.href = "vehiculo.html"; //añade el vehículo a la lista de vehículos
 
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "species/" + aux
+        let li = document.createElement('li');
+        li.appendChild(a); //añade el elemento a a la lista
+        a.innerText = r.name;
+        dom['veh'].appendChild(li);
+
+        var aux = obtenerURLRecursoSWAPI(r.url);
+        a.id = "vehicles/" + aux; //guarda el id del vehículo
         a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
-          }
-    })
+            term = a.id;
+            sessionStorage.setItem("term", term);//guarda el id del vehículo en el sessionStorage
+        };
+    } catch (error) {
+        console.error(error); //si hay un error, lo muestra por consola
+    }
 }
-  
+
+
+async function addEspecie(especie) {
+    try {
+        const r = await obtenerEspecies(especie); //obtiene la especie
+        let a = document.createElement('a');
+        a.href = "especie.html"; //añade la especie a la lista de especies
+
+        let li = document.createElement('li');
+        li.appendChild(a); //añade el elemento a a la lista
+        a.innerText = r.name;
+        dom['especie'].appendChild(li); //añade la especie a la lista de especies
+
+        var aux = obtenerURLRecursoSWAPI(r.url); //obtiene el id de la especie
+        a.id = "species/" + aux;
+        a.onmouseover = () => {
+            term = a.id;
+            sessionStorage.setItem("term", term); //guarda el id de la especie en el sessionStorage
+        };
+    } catch (error) {
+        console.error(error);
+    }
+}
 

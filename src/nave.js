@@ -57,47 +57,42 @@ function addPropiedades(addi) {
 
 }
 
-function addPelicula(pelicula) { //añade las películas a la lista
-    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
-    .then(r =>{
-    
-        let a = document.createElement('a')
-        a.href = "pelicula.html"
-    
-        let li = document.createElement('li') //crea un elemento li
-        li.appendChild(a)
-        a.innerText = r.title
-        dom['pelicula'].appendChild(li) //añade el elemento li a la lista
 
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "films/" + aux //añade el id de la película al elemento a
-        a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term); //guarda el id de la película en el sessionStorage
-      }
-    })
+async function addPelicula(pelicula) { //añade las peliculas
+    try {
+        const response = await obtenerPeliculas(`films/${obtenerURLRecursoSWAPI(pelicula)}`);
+        const peliculaURL = obtenerURLRecursoSWAPI(response.url);
+        const a = document.createElement('a');
+        a.href = 'pelicula.html';
+        a.id = `films/${peliculaURL}`; //guarda el id de la pelicula
+        a.innerText = response.title;
+        a.addEventListener('mouseover', () => { //al pasar el ratón por encima de la pelicula, guarda el id de la pelicula en el sessionStorage
+            sessionStorage.setItem('term', a.id);
+        });
+        const li = document.createElement('li'); //crea un elemento li
+        li.appendChild(a);
+        dom.pelicula.appendChild(li);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function addPersonaje(personaje) {
-    obtenerPersonajes(personaje)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "personaje.html"
-        
-    
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['personaje'].appendChild(li) //añade el elemento li a la lista
-        var aux = obtenerURLRecursoSWAPI(r.url) //obtiene el id del personaje
-        a.id = "people/" + aux
-        
-        a.onmouseover = () => {
-            term = a.id //guarda el id del personaje en la variable term
-            sessionStorage.setItem("term", term); //guarda el id del personaje en el sessionStorage
-      }
-    })
+async function addPersonaje(personaje) { //añade los personajes
+    try {
+        const response = await obtenerPersonajes(personaje);
+        const personajeURL = obtenerURLRecursoSWAPI(response.url); //obtiene el id del personaje
+        const a = document.createElement('a');
+        a.href = 'personaje.html'; //cambiar a personaje.html
+        a.id = `people/${personajeURL}`;
+        a.innerText = response.name;
+        a.addEventListener('mouseover', () => {
+            sessionStorage.setItem('term', a.id); //guarda el id del personaje en el sessionStorage
+        });
+        const li = document.createElement('li');
+        li.appendChild(a);
+        dom.personaje.appendChild(li); //añade el personaje a la lista
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-
-  

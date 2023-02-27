@@ -40,109 +40,113 @@ function addCaracter(addi) {
         ". Mide " + addi.height + " cm, y pesa: " + addi.mass + " kg. Su color de pelo: " + addi.hair_color + " y su color de piel es: " + addi.skin_color +", el de sus ojos es: " + addi.eye_color +". Nació en: " + addi.birth_year +"."
 }
 
-function addPelicula(pelicula) {
-    obtenerPeliculas("films/" + obtenerURLRecursoSWAPI(pelicula))
-    .then(r =>{
-    
-        let a = document.createElement('a')
-        a.href = "pelicula.html"
-    
-        let li = document.createElement('li') //crea un elemento li
-        li.appendChild(a)
-        a.innerText = r.title //nombre de la película
-        dom['pelicula'].appendChild(li) //añade la película a la lista de películas
-
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "films/" + aux
-        a.onmouseover = () => { //cuando el ratón pasa por encima de la película, se guarda el id de la película en el sessionStorage
-            term = a.id
-            sessionStorage.setItem("term", term); //guarda el id de la película en el sessionStorage
-      }
-    })
+async function addPelicula(pelicula) { //añade las peliculas
+    try {
+        const response = await obtenerPeliculas(`films/${obtenerURLRecursoSWAPI(pelicula)}`);
+        const peliculaURL = obtenerURLRecursoSWAPI(response.url);
+        const a = document.createElement('a');
+        a.href = 'pelicula.html';
+        a.id = `films/${peliculaURL}`; //guarda el id de la pelicula
+        a.innerText = response.title;
+        a.addEventListener('mouseover', () => { //al pasar el ratón por encima de la pelicula, guarda el id de la pelicula en el sessionStorage
+            sessionStorage.setItem('term', a.id);
+        });
+        const li = document.createElement('li'); //crea un elemento li
+        li.appendChild(a);
+        dom.pelicula.appendChild(li);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function addPlaneta(planeta) {
-    obtenerPlanetas(planeta)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "planeta.html"
+async function addPlaneta(planeta) { //añade los planetas
+    try {
+        const r = await obtenerPlanetas(planeta); //obtiene el planeta
+        let a = document.createElement('a');
+        a.href = "planeta.html";
 
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['planeta'].appendChild(li) //añade el planeta a la lista de planetas
-        var aux = obtenerURLRecursoSWAPI(r.url) //obtiene el id del planeta
-        a.id = "planets/" + aux
+        let li = document.createElement('li');
+        li.appendChild(a); //añade el elemento a a la lista
+        a.innerText = r.name;
+        dom['planeta'].appendChild(li); //añade el planeta a la lista de planetas
 
+        var aux = obtenerURLRecursoSWAPI(r.url); //obtiene el id del planeta
+        a.id = "planets/" + aux;
         a.onmouseover = () => {
-            term = a.id
+            term = a.id;
             sessionStorage.setItem("term", term); //guarda el id del planeta en el sessionStorage
-          }
-        
-    })
+        };
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 
-function addNave(nave) { //mismo proceso que para las películas
-    obtenerNaves(nave)
-    .then(r =>{
+async function addNave(nave) {
+    try {
+        const r = await obtenerNaves(nave); //obtiene la nave
+        let a = document.createElement('a');
+        a.href = "nave.html";
 
-        let a = document.createElement('a') //crea un elemento a
-        a.href = "nave.html"
+        let li = document.createElement('li');
+        li.appendChild(a);
+        a.innerText = r.name;
+        dom['nave'].appendChild(li); //añade la nave a la lista de naves
 
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['nave'].appendChild(li) //añade la nave a la lista de naves
-
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "starships/" + aux //guarda el id de la nave en el sessionStorage
+        var aux = obtenerURLRecursoSWAPI(r.url); //obtiene el id de la nave
+        a.id = "starships/" + aux; //guarda el id de la nave
         a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
-          }
-    })
+            term = a.id;
+            sessionStorage.setItem("term", term); //guarda el id de la nave en el sessionStorage
+        };
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 
-function addVeh(veh) { //mismo proceso que para las películas
-    obtenerVehiculos(veh)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "vehiculo.html"
+async function addVeh(veh) {
+    try {
+        const r = await obtenerVehiculos(veh);
+        let a = document.createElement('a');
+        a.href = "vehiculo.html"; //añade el vehículo a la lista de vehículos
 
-        let li = document.createElement('li')
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['veh'].appendChild(li) //añade el vehículo a la lista de vehículos
-        
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "vehicles/" + aux //guarda el id del vehículo en el sessionStorage
+        let li = document.createElement('li');
+        li.appendChild(a); //añade el elemento a a la lista
+        a.innerText = r.name;
+        dom['veh'].appendChild(li);
+
+        var aux = obtenerURLRecursoSWAPI(r.url);
+        a.id = "vehicles/" + aux; //guarda el id del vehículo
         a.onmouseover = () => {
-            term = a.id
-            sessionStorage.setItem("term", term);
-          }
-    })
+            term = a.id;
+            sessionStorage.setItem("term", term);//guarda el id del vehículo en el sessionStorage
+        };
+    } catch (error) {
+        console.error(error); //si hay un error, lo muestra por consola
+    }
 }
 
 
-function addEspecie(especie) {
-    obtenerEspecies(especie)
-    .then(r =>{
-        let a = document.createElement('a')
-        a.href = "especie.html"
-    
-        let li = document.createElement('li') //crea un elemento li
-        li.appendChild(a)
-        a.innerText = r.name
-        dom['especie'].appendChild(li) // añade la especie a la lista de especies
+async function addEspecie(especie) {
+    try {
+        const r = await obtenerEspecies(especie); //obtiene la especie
+        let a = document.createElement('a');
+        a.href = "especie.html"; //añade la especie a la lista de especies
 
-        var aux = obtenerURLRecursoSWAPI(r.url)
-        a.id = "species/" + aux
+        let li = document.createElement('li');
+        li.appendChild(a); //añade el elemento a a la lista
+        a.innerText = r.name;
+        dom['especie'].appendChild(li); //añade la especie a la lista de especies
+
+        var aux = obtenerURLRecursoSWAPI(r.url); //obtiene el id de la especie
+        a.id = "species/" + aux;
         a.onmouseover = () => {
-            term = a.id
+            term = a.id;
             sessionStorage.setItem("term", term); //guarda el id de la especie en el sessionStorage
-          }
-    })
+        };
+    } catch (error) {
+        console.error(error);
+    }
 }
   
