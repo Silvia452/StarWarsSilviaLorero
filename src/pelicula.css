@@ -59,11 +59,11 @@ a {
 }
 
 #contenido > div > div::-webkit-scrollbar {
-    width: 11px;
+    width: 0;
 }
 
 
-#contenido > div > div::-webkit-scrollbar-thumb {
+#personaje::-webkit-scrollbar-thumb {
     background-color: yellow;
     border-radius: 10px;
 

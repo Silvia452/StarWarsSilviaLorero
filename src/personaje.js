@@ -14,8 +14,7 @@ window.onload = () => {
     
     obtenerPersonajes(term) //obtiene el personaje
     .then(r => {
-        dom["nombre"].innerHTML = r.name //nombre del personaje
-        addCaracter(r)
+        dom["nombre"].innerHTML = r.name.toUpperCase() //nombre del personaje
         r.films.forEach(addPelicula)
         addPlaneta(r.homeworld) //no es un array, por eso no va en el forEach
         r.starships.forEach(addNave)
@@ -34,11 +33,7 @@ function buttonAtras() { //vuelve a la página principal
     window.open("index.html", "_self")
 }
 
-function addCaracter(addi) {
-    dom["descripcion"].innerHTML = "DESCRIPCIÓN.\n" +
-        "Su género es: "+ addi.gender +
-        ". Mide " + addi.height + " cm, y pesa: " + addi.mass + " kg. Su color de pelo: " + addi.hair_color + " y su color de piel es: " + addi.skin_color +", el de sus ojos es: " + addi.eye_color +". Nació en: " + addi.birth_year +"."
-}
+
 
 async function addPelicula(pelicula) { //añade las peliculas
     try {
